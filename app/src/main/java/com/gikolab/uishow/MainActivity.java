@@ -1,12 +1,17 @@
 package com.gikolab.uishow;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.gikolab.uishow.home.Home;
 
 public class MainActivity extends Activity
 {
@@ -15,6 +20,20 @@ public class MainActivity extends Activity
     MenuListAdapter mMenuAdapter;
     ActionBarDrawerToggle mDrawerToggle;
 
+    Fragment home = new Home();
+//    Fragment animation = new Animation();
+//    Fragment arc = new Arc();
+//    Fragment chart = new Chart();
+//    Fragment dragdrop = new DragDrop();
+//    Fragment list = new List();
+//    Fragment magic = new MagicalTextView();
+//    Fragment map = new Map();
+//    Fragment paint = new Paint();
+//    Fragment picker = new Picker();
+//    Fragment popup = new PopUp();
+//    Fragment text2speech = new Text2Speech();
+//    Fragment viewflow = new ViewFlow();
+//    Fragment wheel = new Android_Wheel();
 
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -28,7 +47,7 @@ public class MainActivity extends Activity
 
         setContentView(R.layout.drawer_main);
 
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         mTitle = mDrawerTitle = getTitle();
         title = new String[] {"Android UI Design", "Animations", "Arc Menu", "Chart", "Drag & Drop", "ListView", "Magical TextView", "Map", "Paint", "Picker", "PopUp", "Text 2 Speech", "ViewFlow", "Wheel"};
@@ -38,7 +57,7 @@ public class MainActivity extends Activity
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.listview_drawer);
 
-      //  mDrawerLayout.setDrawerShadow(R.mipmap.drawer_shadow, GravityCompat.START);
+        mDrawerLayout.setDrawerShadow(R.mipmap.drawer_shadow, GravityCompat.START);
         mMenuAdapter = new MenuListAdapter(MainActivity.this, title, subtitle, icon);
         mDrawerList.setAdapter(mMenuAdapter);
 
@@ -76,14 +95,14 @@ public class MainActivity extends Activity
 
     private void selectItem(int position)
     {
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        switch (position)
-//        {
-//            case 0:
-//                setTitle(title[position]);
-//                ft.replace(R.id.content_frame, home);
-//                break;
-//
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        switch (position)
+        {
+            case 0:
+                setTitle(title[position]);
+                ft.replace(R.id.content_frame, home);
+                break;
+
 //            case 1:
 //                setTitle(title[position]);
 //                ft.replace(R.id.content_frame, animation);
@@ -148,11 +167,11 @@ public class MainActivity extends Activity
 //                setTitle(title[position]);
 //                ft.replace(R.id.content_frame, wheel);
 //                break;
-//        }
-//        ft.commit();
-//        mDrawerList.setItemChecked(position, true);
-//        setTitle(title[position]);
-//        mDrawerLayout.closeDrawer(mDrawerList);
+        }
+        ft.commit();
+        mDrawerList.setItemChecked(position, true);
+        setTitle(title[position]);
+        mDrawerLayout.closeDrawer(mDrawerList);
     }
 
 }
