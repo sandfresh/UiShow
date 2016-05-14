@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:boopathy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <com.gikolab.uishow.magical.MagicalTextView_Master
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Play On!"
+        android:textColor="#ff333333"
+        android:textSize="78sp"
+        android:textStyle="bold"
+        boopathy:innerShadowColor="#FFCCCCCC"
+        boopathy:innerShadowDy="2"
+        boopathy:innerShadowRadius="1"
+        boopathy:outerShadowColor="#FF0088ff"
+        boopathy:outerShadowDy="3"
+        boopathy:outerShadowRadius="10"
+        boopathy:strokeColor="#FF99CC00"
+        boopathy:strokeJoinStyle="miter"
+        boopathy:strokeWidth="5" />
+
+</LinearLayout>
